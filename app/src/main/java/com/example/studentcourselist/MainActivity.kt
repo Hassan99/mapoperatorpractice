@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
 
         val studentList = getStudetsList()
 
-       var anotherList= studentList
+       var result= studentList
             .flatMap { student -> student.list }
             .filter { course -> course.paidStatus == true }
             .groupingBy { it.courseName }
@@ -35,7 +35,8 @@ class MainActivity : ComponentActivity() {
             .take(2)
 
 
-        Log.e("DATA", anotherList.toString())
+        result.forEach (::println)
+
 
 
     }
